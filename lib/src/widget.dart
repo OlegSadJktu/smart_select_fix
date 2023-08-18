@@ -998,7 +998,10 @@ abstract class S2State<T> extends State<SmartSelect<T>> {
           items: widget.choiceItems,
           config: choiceConfig,
           builder: builder,
-          query: filter.query
+          query: filter.query,
+          isMulti: widget.isMultiChoice,
+          changes: changes,
+
         ),
       ),
     );

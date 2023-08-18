@@ -5,6 +5,7 @@ import './model/choice_config.dart';
 import './choices_grouped.dart';
 import './choices_list.dart';
 import './choices_empty.dart';
+import './state/changes.dart';
 
 /// modal choice widget
 class S2Choices<T> extends StatelessWidget {
@@ -24,6 +25,8 @@ class S2Choices<T> extends StatelessWidget {
   /// current filter query
   final String query;
 
+  final bool isMulti;
+  covariant S2Changes<T> changes;
   /// default constructor
   S2Choices({
     Key key,
@@ -32,6 +35,8 @@ class S2Choices<T> extends StatelessWidget {
     @required this.config,
     @required this.builder,
     @required this.query,
+    @required this.isMulti,
+    @required this.changes,
   }) : super(key: key);
 
   @override
@@ -45,6 +50,9 @@ class S2Choices<T> extends StatelessWidget {
             config: config,
             builder: builder,
             query: query,
+            isMulti: isMulti,
+            changes: changes,
+
           )
         : S2ChoicesList<T>(
             items: _filteredItems,
